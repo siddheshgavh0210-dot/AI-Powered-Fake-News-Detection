@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Veritas AI | Fake News Detection</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="background-glow glow1"></div>
+<div class="background-glow glow2"></div>
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <div class="logo-circle">
+
+                <i class="bi bi-shield-check"></i>
+
+            </div>
+
+            <h2>Veritas <span>AI</span></h2>
+
+            <p>AI Powered Fake News Detection</p>
+
+        </div>
+
+        <nav>
+
+            <a href="/" class="active">
+
+                <i class="bi bi-search"></i>
+
+                Fake News Detector
+
+            </a>
+
+            <a href="/about">
+
+                <i class="bi bi-info-circle"></i>
+
+                About Project
+
+            </a>
+
+        </nav>
+
+    </aside>
+
+    <!-- Main -->
+
+    <main class="main-content">
+
+        <header>
+
+            <h1>
+
+                AI Powered Fake News Detection
+
+            </h1>
+
+            <p>
+
+                Detect misinformation using Machine Learning,
+                Natural Language Processing and Artificial Intelligence.
+
+            </p>
+
+        </header>
+
+        <div class="content-grid">
+
+            <!-- Left Card -->
+
+            <section class="glass">
+
+                <div class="card-header-custom">
+
+                    <i class="bi bi-newspaper"></i>
+
+                    <h3>Analyze News Article</h3>
+
+                </div>
+
+                <form action="/predict" method="POST">
+
+                    <textarea
+                        id="news"
+                        class="form-control"
+                        rows="12"
+                        name="news"
+                        placeholder="Paste your news article here..."
+                        required></textarea>
+                        <div class="warning-box mt-3">
+                        <i class="bi bi-info-circle-fill"></i>
+                        <strong>Important:</strong> This AI model is trained on full-length news articles.
+                        For the best accuracy, paste a complete news article (100+ words).
+                        Short headlines or single-sentence inputs may produce inaccurate predictions.
+                        </div>
+
+                    <div class="char-counter">
+
+                        Characters :
+                        <span id="charCount">0</span>
+
+                    </div>
+
+                    <h4>
+
+                        <i class="bi bi-cpu"></i>
+
+                        Choose AI Model
+
+                    </h4>
+
+                    <div class="model-grid">
+
+                        <label class="model-card selected">
+
+                            <input
+                                type="radio"
+                                name="model"
+                                value="logistic"
+                                checked>
+
+                            <div class="model-icon">
+
+                                🧠
+
+                            </div>
+
+                            <h5>Logistic Regression</h5>
+
+                            <p>Fast Prediction</p>
+
+                        </label>
+
+                        <label class="model-card">
+
+                            <input
+                                type="radio"
+                                name="model"
+                                value="randomforest">
+
+                            <div class="model-icon">
+
+                                🌲
+
+                            </div>
+
+                            <h5>Random Forest</h5>
+
+                            <p>Highest Accuracy</p>
+
+                        </label>
+
+                        <label class="model-card">
+
+                            <input
+                                type="radio"
+                                name="model"
+                                value="knn">
+
+                            <div class="model-icon">
+
+                                📍
+
+                            </div>
+
+                            <h5>KNN</h5>
+
+                            <p>Distance Based</p>
+
+                        </label>
+
+                        <label class="model-card">
+
+                            <input
+                                type="radio"
+                                name="model"
+                                value="neural">
+
+                            <div class="model-icon">
+
+                                ⚡
+
+                            </div>
+
+                            <h5>Neural Network</h5>
+
+                            <p>Deep Learning</p>
+
+                        </label>
+
+                    </div>
+
+                    <button class="detect-btn">
+
+                        <i class="bi bi-stars"></i>
+
+                        Analyze with AI
+
+                    </button>
+
+                </form>
+
+            </section>
+
+            <!-- Right -->
+
+            <section class="glass status-card">
+
+                <div class="status-animation">
+
+                    <div class="pulse-ring"></div>
+
+                    <i class="bi bi-shield-check"></i>
+
+                </div>
+
+                <h2>AI System Status</h2>
+
+                <p>
+
+                    All Machine Learning models are loaded successfully.
+
+                </p>
+
+                <div class="divider"></div>
+
+                <div class="status-list">
+
+                    <div>
+
+                        <i class="bi bi-check-circle-fill"></i>
+
+                        TF-IDF Vectorizer Ready
+
+                    </div>
+
+                    <div>
+
+                        <i class="bi bi-check-circle-fill"></i>
+
+                        Logistic Regression Loaded
+
+                    </div>
+
+                    <div>
+
+                        <i class="bi bi-check-circle-fill"></i>
+
+                        Random Forest Loaded
+
+                    </div>
+
+                    <div>
+
+                        <i class="bi bi-check-circle-fill"></i>
+
+                        KNN Loaded
+
+                    </div>
+
+                    <div>
+
+                        <i class="bi bi-check-circle-fill"></i>
+
+                        Neural Network Loaded
+
+                    </div>
+
+                    <div>
+
+                        <i class="bi bi-check-circle-fill"></i>
+
+                        Prediction Engine Ready
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+        <section class="info-cards">
+
+            <div class="info-card">
+
+                <i class="bi bi-lightning-charge-fill"></i>
+
+                <h3>Fast Prediction</h3>
+
+                <p>
+
+                    Analyze news articles within seconds using trained ML models.
+
+                </p>
+
+            </div>
+
+            <div class="info-card">
+
+                <i class="bi bi-bar-chart-fill"></i>
+
+                <h3>High Accuracy</h3>
+
+                <p>
+
+                    Multiple algorithms ensure reliable fake news classification.
+
+                </p>
+
+            </div>
+
+            <div class="info-card">
+
+                <i class="bi bi-shield-lock-fill"></i>
+
+                <h3>Secure Processing</h3>
+
+                <p>
+
+                    News articles are analyzed locally without permanent storage.
+
+                </p>
+
+            </div>
+
+        </section>
+
+        <footer>
+
+            © 2026 Veritas AI
+
+            <span>|</span>
+
+            Built with Flask, Scikit-Learn & Machine Learning
+
+        </footer>
+
+    </main>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+</body>
+
+</html>
